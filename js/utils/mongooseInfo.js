@@ -52,7 +52,7 @@ getAllModels = function() {
   var allModels, error, key, models, userModels, val;
   models = {};
   try {
-    userModels = requireDirectory(module, '../../../models');
+    userModels = requireDirectory(module, '../../../../models');
     if (Object.keys(userModels).length === 0) {
       console.log('No models defined, please define models in "models" directory');
     }

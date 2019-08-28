@@ -1,48 +1,48 @@
 {
-  "name": "mongoose-auto-api.info",
-  "version": "0.0.3",
-  "description": "Automatic Mongoose REST API - Module to get schema info",
-  "main": "./js/index.js",
-  "files": [
-    "/js"
-  ],
-  "scripts": {
-    "test": "./node_modules/.bin/mocha js/tests",
-    "compile": "grunt sync"
-  },
-  "author": "Edmund Pfeil {edmundpf@buffalo.edu}",
-  "homepage": "https://github.com/edmundpf/mongoose-auto-api-info",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/edmundpf/mongoose-auto-api-info"
-  },
-  "keywords": [
-  	"mongoose",
-  	"schema",
-  	"models",
-  	"api",
-  	"rest",
-  	"restful",
-  	"auto",
-  	"automatic",
-  	"bootstrap",
-  	"starter",
-  	"template"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "lodash.camelcase": "^4.3.0",
-    "lodash.snakecase": "^4.1.1",
-    "lodash.startcase": "^4.4.0",
-    "require-directory": "^2.1.1"
-  },
-  "devDependencies": {
-    "chai": "*",
-    "grunt": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-coffee": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-watch": "*",
-    "mocha": "*"
-  }
+	"name": "mongoose-auto-api.info",
+	"version": "0.0.3",
+	"description": "Automatic Mongoose REST API - Module to get schema info",
+	"main": "./js/index.js",
+	"files": [
+		"/js"
+	],
+	"scripts": {
+		"test": "./node_modules/.bin/mocha js/tests",
+		"compile": "grunt sync"
+	},
+	"author": "Edmund Pfeil {edmundpf@buffalo.edu}",
+	"homepage": "https://github.com/edmundpf/mongoose-auto-api-info",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/edmundpf/mongoose-auto-api-info"
+	},
+	"keywords": [
+		"mongoose",
+		"schema",
+		"models",
+		"api",
+		"rest",
+		"restful",
+		"auto",
+		"automatic",
+		"bootstrap",
+		"starter",
+		"template"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"lodash.camelcase": "^4.3.0",
+		"lodash.snakecase": "^4.1.1",
+		"lodash.startcase": "^4.4.0",
+		"require-directory": "^2.1.1"
+	},
+	"devDependencies": {
+		"chai": "*",
+		"grunt": "*",
+		"grunt-contrib-clean": "*",
+		"grunt-contrib-coffee": "*",
+		"grunt-contrib-copy": "*",
+		"grunt-contrib-watch": "*",
+		"mocha": "*"
+	}
 }

@@ -36,6 +36,7 @@ schemaInfo = (obj) ->
 		primaryKey: primaryKey
 		listFields: listFields
 		encryptFields: encryptFields
+		schema: schema
 	)
 #: Get All Models
 

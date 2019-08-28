@@ -42,7 +42,8 @@ schemaInfo = function(obj) {
     collectionName: snakeCaseName,
     primaryKey: primaryKey,
     listFields: listFields,
-    encryptFields: encryptFields
+    encryptFields: encryptFields,
+    schema: schema
   };
 };
 

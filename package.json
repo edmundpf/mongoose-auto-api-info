@@ -1,6 +1,6 @@
 {
   "name": "mongoose-auto-api.info",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Automatic Mongoose REST API - Module to get schema info",
   "main": "./js/index.js",
   "files": [
@@ -16,6 +16,19 @@
     "type": "git",
     "url": "https://github.com/edmundpf/mongoose-auto-api-info"
   },
+  "keywords": [
+  	"mongoose",
+  	"schema",
+  	"models",
+  	"api",
+  	"rest",
+  	"restful",
+  	"auto",
+  	"automatic",
+  	"bootstrap",
+  	"starter",
+  	"template"
+  ],
   "license": "MIT",
   "dependencies": {
     "lodash.camelcase": "^4.3.0",

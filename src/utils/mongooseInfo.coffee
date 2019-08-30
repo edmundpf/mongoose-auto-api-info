@@ -12,11 +12,12 @@ schemaInfo = (obj) ->
 	snakeCaseName = snakeCase(name)
 	titleCaseName = titleCase(name)
 	schema = obj.schema
+	allFields = []
 	listFields = []
 	encryptFields = []
 	primaryKey = null
 
-	# Get Primary Keys, List Fields, Encrypted Fields, and delete non-Mongoose attributes
+	# Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
 
 	for key, attrs of schema
 		if attrs.primaryKey? and attrs.primaryKey
@@ -27,6 +28,7 @@ schemaInfo = (obj) ->
 		if attrs.encrypt? and attrs.encrypt
 			encryptFields.push(key)
 			delete schema[key].encrypt
+		allFields.push(key)
 
 	# Mongoose Model and attributes
 
@@ -34,6 +36,7 @@ schemaInfo = (obj) ->
 		modelName: titleCaseName
 		collectionName: snakeCaseName
 		primaryKey: primaryKey
+		allFields: allFields
 		listFields: listFields
 		encryptFields: encryptFields
 		schema: schema

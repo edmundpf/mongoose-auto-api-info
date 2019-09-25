@@ -21,7 +21,7 @@ schemaInfo = function(obj) {
   allFields = [];
   listFields = [];
   encryptFields = [];
-  primaryKey = null;
+  primaryKey = '_id';
 // Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
   for (key in schema) {
     attrs = schema[key];
@@ -61,7 +61,11 @@ getAllModels = function() {
     }
   } catch (error1) {
     error = error1;
-    console.log('No "models" directory found in root of project, please define models');
+    if ((error.code != null) && error.code === 'ENOENT') {
+      console.log('No "models" directory found in root of project, please define models');
+    } else {
+      console.log('Error parsing models, please check models');
+    }
   }
   allModels = {...authModels, ...userModels};
   for (key in allModels) {

@@ -15,7 +15,7 @@ schemaInfo = (obj) ->
 	allFields = []
 	listFields = []
 	encryptFields = []
-	primaryKey = null
+	primaryKey = '_id'
 
 	# Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
 
@@ -50,7 +50,10 @@ getAllModels = () ->
 		if Object.keys(userModels).length == 0
 			console.log('No models defined, please define models in "models" directory')
 	catch error
-		console.log('No "models" directory found in root of project, please define models')
+		if error.code? and error.code == 'ENOENT'
+			console.log('No "models" directory found in root of project, please define models')
+		else
+			console.log('Error parsing models, please check models')
 	allModels = {
 		...authModels,
 		...userModels

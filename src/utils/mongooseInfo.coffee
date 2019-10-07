@@ -15,6 +15,7 @@ schemaInfo = (obj) ->
 	allFields = []
 	listFields = []
 	encryptFields = []
+	encodeFields = []
 	primaryKey = '_id'
 
 	# Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
@@ -28,6 +29,9 @@ schemaInfo = (obj) ->
 		if attrs.encrypt? and attrs.encrypt
 			encryptFields.push(key)
 			delete schema[key].encrypt
+		if attrs.encode? and attrs.encode
+			encodeFields.push(key)
+			delete schema[key].encode
 		allFields.push(key)
 
 	# Mongoose Model and attributes
@@ -39,6 +43,7 @@ schemaInfo = (obj) ->
 		allFields: allFields
 		listFields: listFields
 		encryptFields: encryptFields
+		encodeFields: encodeFields
 		schema: schema
 	)
 #: Get All Models

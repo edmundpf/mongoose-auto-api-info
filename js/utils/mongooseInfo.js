@@ -12,7 +12,7 @@ authModels = require('./authModels');
 
 //: Get Schema Info
 schemaInfo = function(obj) {
-  var allFields, attrs, camelCaseName, encryptFields, key, listFields, name, primaryKey, schema, snakeCaseName, titleCaseName;
+  var allFields, attrs, camelCaseName, encodeFields, encryptFields, key, listFields, name, primaryKey, schema, snakeCaseName, titleCaseName;
   name = obj.name;
   camelCaseName = camelCase(name);
   snakeCaseName = snakeCase(name);
@@ -21,6 +21,7 @@ schemaInfo = function(obj) {
   allFields = [];
   listFields = [];
   encryptFields = [];
+  encodeFields = [];
   primaryKey = '_id';
 // Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
   for (key in schema) {
@@ -36,6 +37,10 @@ schemaInfo = function(obj) {
       encryptFields.push(key);
       delete schema[key].encrypt;
     }
+    if ((attrs.encode != null) && attrs.encode) {
+      encodeFields.push(key);
+      delete schema[key].encode;
+    }
     allFields.push(key);
   }
   return {
@@ -46,6 +51,7 @@ schemaInfo = function(obj) {
     allFields: allFields,
     listFields: listFields,
     encryptFields: encryptFields,
+    encodeFields: encodeFields,
     schema: schema
   };
 };

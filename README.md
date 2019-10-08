@@ -34,6 +34,7 @@ module.exports = {
 	* Schema definitions are the same as normal mongoose definitions with a few additions
 		* primaryKey - unique field used to find documents from the API
 		* encrypted - if true field will be bcrypt encrypted, useful for passwords
+		* encoded - if true field will be base64 encoded
 * Returns object
 	* modelName (String)
 	* collectionName (String)
@@ -41,6 +42,7 @@ module.exports = {
 	* allFields (Array)
 	* listFields (Array)
 	* encryptFields (Array)
+	* encodeFields (Array)
 	* schema (Object)
 
 ## Usage

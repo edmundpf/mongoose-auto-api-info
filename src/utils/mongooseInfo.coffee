@@ -51,7 +51,11 @@ schemaInfo = (obj) ->
 getAllModels = () ->
 	models = {}
 	try
-		userModels = requireDirectory(module, '../../../../models')
+		userModels = requireDirectory(
+			module,
+			'../../../../models',
+			recurse: false,
+			)
 		if Object.keys(userModels).length == 0
 			console.log('No models defined, please define models in "models" directory')
 	catch error

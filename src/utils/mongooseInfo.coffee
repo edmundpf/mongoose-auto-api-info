@@ -14,6 +14,7 @@ schemaInfo = (obj) ->
 	schema = obj.schema
 	allFields = []
 	listFields = []
+	subDocFields = []
 	encryptFields = []
 	encodeFields = []
 	primaryKey = '_id'
@@ -21,11 +22,14 @@ schemaInfo = (obj) ->
 	# Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
 
 	for key, attrs of schema
+		isArray = Array.isArray(attrs)
 		if attrs.primaryKey? and attrs.primaryKey
 			primaryKey = key
 			delete schema[key].primaryKey
-		if Array.isArray(attrs)
+		if isArray
 			listFields.push(key)
+		if not isArray and attrs.type.obj?
+			subDocFields.push(key)
 		if attrs.encrypt? and attrs.encrypt
 			encryptFields.push(key)
 			delete schema[key].encrypt
@@ -42,6 +46,7 @@ schemaInfo = (obj) ->
 		primaryKey: primaryKey
 		allFields: allFields
 		listFields: listFields
+		subDocFields: subDocFields
 		encryptFields: encryptFields
 		encodeFields: encodeFields
 		schema: schema

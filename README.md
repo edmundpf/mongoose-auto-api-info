@@ -41,6 +41,7 @@ module.exports = {
 	* primaryKey (String)
 	* allFields (Array)
 	* listFields (Array)
+	* subDocFields (Array)
 	* encryptFields (Array)
 	* encodeFields (Array)
 	* schema (Object)

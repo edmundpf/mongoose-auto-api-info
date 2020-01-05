@@ -12,7 +12,7 @@ authModels = require('./authModels');
 
 //: Get Schema Info
 schemaInfo = function(obj) {
-  var allFields, attrs, camelCaseName, encodeFields, encryptFields, key, listFields, name, primaryKey, schema, snakeCaseName, titleCaseName;
+  var allFields, attrs, camelCaseName, encodeFields, encryptFields, isArray, key, listFields, name, primaryKey, schema, snakeCaseName, subDocFields, titleCaseName;
   name = obj.name;
   camelCaseName = camelCase(name);
   snakeCaseName = snakeCase(name);
@@ -20,18 +20,23 @@ schemaInfo = function(obj) {
   schema = obj.schema;
   allFields = [];
   listFields = [];
+  subDocFields = [];
   encryptFields = [];
   encodeFields = [];
   primaryKey = '_id';
 // Get Primary Keys, All Fields, List Fields, Encrypted Fields, and delete non-Mongoose attributes
   for (key in schema) {
     attrs = schema[key];
+    isArray = Array.isArray(attrs);
     if ((attrs.primaryKey != null) && attrs.primaryKey) {
       primaryKey = key;
       delete schema[key].primaryKey;
     }
-    if (Array.isArray(attrs)) {
+    if (isArray) {
       listFields.push(key);
+    }
+    if (!isArray && (attrs.type.obj != null)) {
+      subDocFields.push(key);
     }
     if ((attrs.encrypt != null) && attrs.encrypt) {
       encryptFields.push(key);
@@ -50,6 +55,7 @@ schemaInfo = function(obj) {
     primaryKey: primaryKey,
     allFields: allFields,
     listFields: listFields,
+    subDocFields: subDocFields,
     encryptFields: encryptFields,
     encodeFields: encodeFields,
     schema: schema

@@ -35,7 +35,7 @@ schemaInfo = function(obj) {
     if (isArray) {
       listFields.push(key);
     }
-    if (!isArray && (attrs.type.obj != null)) {
+    if (!isArray && ((attrs.type.obj != null) || ((attrs.type[0] != null) && (attrs.type[0].obj != null)))) {
       subDocFields.push(key);
     }
     if ((attrs.encrypt != null) && attrs.encrypt) {

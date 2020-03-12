@@ -28,7 +28,7 @@ schemaInfo = (obj) ->
 			delete schema[key].primaryKey
 		if isArray
 			listFields.push(key)
-		if not isArray and attrs.type.obj?
+		if not isArray and (attrs.type.obj? or (attrs.type[0]? and attrs.type[0].obj?))
 			subDocFields.push(key)
 		if attrs.encrypt? and attrs.encrypt
 			encryptFields.push(key)
